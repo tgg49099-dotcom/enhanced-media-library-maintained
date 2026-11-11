@@ -1,0 +1,233 @@
+==============================================================================
+CONTRE-EPREUVE ROUGE - Enhanced Media Library 2.9.4
+Le meme test, dans la meme matrice, sur le code officiel (original) et sur
+le code corrige (fixed).  Sortie brute, non reecrite.
+==============================================================================
+
+Matrice : {WordPress 6.8.12, WordPress 7.1.4} x {PHP 8.3.29, PHP 8.5.8}
+Les 8 cas sont sequentiels.  Les journaux complets sont dans results/<cas>/.
+
+
+##############################################################################
+# CODE OFFICIEL 2.9.4 (non corrige)
+##############################################################################
+
+------------------------------------------------------------------------------
+--- CAS original-wp-6.8.12-8.3.29 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : original / WordPress wp-6.8.12 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+ROUGE  T9 utilitaires (export/import)                 1 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;core/options-pages.php on line 1286;
+
+RESULTATS : 8 vert(s), 2 rouge(s)
+VERDICT : ROUGE
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+[11-Nov-2026 12:10:28 UTC] PHP Warning:  Undefined variable $term_ids in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 999
+[11-Nov-2026 12:10:28 UTC] PHP Warning:  Undefined variable $tcount in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 1013
+[11-Nov-2026 12:10:37 UTC] PHP Warning:  Undefined array key "import_file" in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php on line 1286
+
+------------------------------------------------------------------------------
+--- CAS original-wp-6.8.12-8.5.8 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : original / WordPress wp-6.8.12 / PHP 8.5.8
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+ROUGE  T9 utilitaires (export/import)                 1 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;core/options-pages.php on line 1286;
+
+RESULTATS : 8 vert(s), 2 rouge(s)
+VERDICT : ROUGE
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+[11-Nov-2026 12:10:49 UTC] PHP Warning:  Undefined variable $term_ids in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 999
+[11-Nov-2026 12:10:49 UTC] PHP Warning:  Undefined variable $tcount in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 1013
+[11-Nov-2026 12:10:53 UTC] PHP Warning:  Undefined array key "import_file" in /work/wp/reprise/eml/env/wp-6.8.12/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php on line 1286
+
+------------------------------------------------------------------------------
+--- CAS original-wp-7.1.4-8.3.29 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : original / WordPress wp-7.1.4 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+ROUGE  T9 utilitaires (export/import)                 1 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;core/options-pages.php on line 1286;
+
+RESULTATS : 8 vert(s), 2 rouge(s)
+VERDICT : ROUGE
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+[11-Nov-2026 12:09:50 UTC] PHP Warning:  Undefined variable $term_ids in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 999
+[11-Nov-2026 12:09:50 UTC] PHP Warning:  Undefined variable $tcount in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 1013
+[11-Nov-2026 12:09:59 UTC] PHP Warning:  Undefined array key "import_file" in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php on line 1286
+
+------------------------------------------------------------------------------
+--- CAS original-wp-7.1.4-8.5.8 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : original / WordPress wp-7.1.4 / PHP 8.5.8
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+ROUGE  T9 utilitaires (export/import)                 1 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;core/options-pages.php on line 1286;
+
+RESULTATS : 8 vert(s), 2 rouge(s)
+VERDICT : ROUGE
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+[11-Nov-2026 12:10:11 UTC] PHP Warning:  Undefined variable $term_ids in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 999
+[11-Nov-2026 12:10:11 UTC] PHP Warning:  Undefined variable $tcount in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/taxonomies.php on line 1013
+[11-Nov-2026 12:10:16 UTC] PHP Warning:  Undefined array key "import_file" in /work/wp/reprise/eml/env/wp-7.1.4/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php on line 1286
+
+##############################################################################
+# CODE CORRIGE (ce depot)
+##############################################################################
+
+------------------------------------------------------------------------------
+--- CAS fixed-wp-6.8.12-8.3.29 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : fixed / WordPress wp-6.8.12 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+VERT   T6 AJAX save-attachment-compat                 enregistrement JSON OK, 0 diagnostic
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 10 vert(s), 0 rouge(s)
+VERDICT : VERT
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+(vide : aucune erreur, aucun warning, aucune notice, aucune deprecation)
+
+------------------------------------------------------------------------------
+--- CAS fixed-wp-6.8.12-8.5.8 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : fixed / WordPress wp-6.8.12 / PHP 8.5.8
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+VERT   T6 AJAX save-attachment-compat                 enregistrement JSON OK, 0 diagnostic
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 10 vert(s), 0 rouge(s)
+VERDICT : VERT
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+(vide : aucune erreur, aucun warning, aucune notice, aucune deprecation)
+
+------------------------------------------------------------------------------
+--- CAS fixed-wp-7.1.4-8.3.29 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : fixed / WordPress wp-7.1.4 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+VERT   T6 AJAX save-attachment-compat                 enregistrement JSON OK, 0 diagnostic
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 10 vert(s), 0 rouge(s)
+VERDICT : VERT
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+(vide : aucune erreur, aucun warning, aucune notice, aucune deprecation)
+
+------------------------------------------------------------------------------
+--- CAS fixed-wp-7.1.4-8.5.8 ---
+------------------------------------------------------------------------------
+[sortie brute du cas]
+==============================================================
+CAS : fixed / WordPress wp-7.1.4 / PHP 8.5.8
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+VERT   T6 AJAX save-attachment-compat                 enregistrement JSON OK, 0 diagnostic
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 10 vert(s), 0 rouge(s)
+VERDICT : VERT
+
+[wp-content/debug.log - lignes ecrites par le PLUGIN]
+(vide : aucune erreur, aucun warning, aucune notice, aucune deprecation)

@@ -1,0 +1,27 @@
+===============================================================
+MATRICE DE COMPATIBILITE - Enhanced Media Library 2.9.4
+===============================================================
+WordPress : wp-7.1.4 wp-6.8.12
+PHP       : 8.3.29 8.5.8
+Variantes : original fixed
+Date      : 2026-11-11 12:09:38 UTC
+
+original  wp-7.1.4   8.3.29   verdict=ROUGE  tests_rouges=2
+original  wp-7.1.4   8.5.8    verdict=ROUGE  tests_rouges=2
+original  wp-6.8.12  8.3.29   verdict=ROUGE  tests_rouges=2
+original  wp-6.8.12  8.5.8    verdict=ROUGE  tests_rouges=2
+fixed     wp-7.1.4   8.3.29   verdict=VERT   tests_rouges=0
+fixed     wp-7.1.4   8.5.8    verdict=VERT   tests_rouges=0
+fixed     wp-6.8.12  8.3.29   verdict=VERT   tests_rouges=0
+fixed     wp-6.8.12  8.5.8    verdict=VERT   tests_rouges=0
+===============================================================
+SYNTHESE : 4/8 cas verts
+===============================================================
+original  wp-7.1.4   8.3.29   verdict=ROUGE  tests_rouges=2
+original  wp-7.1.4   8.5.8    verdict=ROUGE  tests_rouges=2
+original  wp-6.8.12  8.3.29   verdict=ROUGE  tests_rouges=2
+original  wp-6.8.12  8.5.8    verdict=ROUGE  tests_rouges=2
+fixed     wp-7.1.4   8.3.29   verdict=VERT   tests_rouges=0
+fixed     wp-7.1.4   8.5.8    verdict=VERT   tests_rouges=0
+fixed     wp-6.8.12  8.3.29   verdict=VERT   tests_rouges=0
+fixed     wp-6.8.12  8.5.8    verdict=VERT   tests_rouges=0

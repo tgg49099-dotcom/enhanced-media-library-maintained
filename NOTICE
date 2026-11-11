@@ -1,0 +1,83 @@
+Enhanced Media Library - compatibility fork - NOTICE
+===================================================
+
+Plugin:            Enhanced Media Library
+Slug:              enhanced-media-library
+Original version:  2.9.4 (released on WordPress.org on 2024-07-15)
+Original author:   wpUXsolutions ("webbistro" on WordPress.org)
+                    https://profiles.wordpress.org/webbistro/
+                    https://wpuxsolutions.com
+Original page:     https://wordpress.org/plugins/enhanced-media-library/
+Licence:           GPL-2.0-or-later
+                    (plugin header: "License: GPL version 2 or later -
+                     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html";
+                     readme.txt: "License: GPLv2 or later")
+Copyright:         (c) 2013-2024 wpUXsolutions (email : wpUXsolutions@gmail.com)
+
+Official ZIP used as the source of this fork:
+https://downloads.wordpress.org/plugin/enhanced-media-library.2.9.4.zip
+md5 4b322340610d4d79d599232efa4b956d   (150310 bytes)
+
+This repository is an UNOFFICIAL compatibility fork maintained by Tgg Labs
+(https://github.com/tgg49099-dotcom).
+
+WHO DOES WHAT
+-------------
+* wpUXsolutions ("webbistro") is the author of Enhanced Media Library. He owns the
+  plugin code, the plugin name, the WordPress.org plugin directory entry, the
+  readme.txt contents, the translations and the "Enhanced Media Library PRO"
+  commercial product.
+* Tgg Labs wrote ONLY the compatibility patches listed in CHANGELOG-COMPAT.md, the
+  test harness in tests/, and the packaging of this repository. Tgg Labs is not the
+  author of Enhanced Media Library, does not sell it, does not own the
+  wordpress.org listing, and does not host any paid version of it.
+* Every file of the official 2.9.4 release is redistributed here unchanged, with its
+  original copyright notice intact, except for the two PHP files that carry the
+  compatibility patches. The patches are marked with comments in the code, and the
+  exact diff is in CHANGELOG-COMPAT.md.
+
+COMMERCIAL VERSION AND SUPPORT
+-------------------------------
+The commercial "Enhanced Media Library PRO" and its support remain the property of
+the original author (https://wpuxsolutions.com). This fork contains no part of the
+commercial version, does not redistribute it, does not provide support for it, and
+does not claim any right over it.
+
+NO PUBLICATION
+--------------
+Nothing in this repository has been submitted to the WordPress.org plugin directory,
+and the `enhanced-media-library` slug there is not affected by this fork. The
+WordPress.org page, its reviews, its support forum and its SVN repository remain
+under the control of the original author.
+
+LICENCE
+-------
+This fork is distributed under the same licence as the original plugin:
+the GNU General Public License, version 2 or (at your option) any later
+version. The full text of the GNU General Public License version 2 is in the
+LICENSE file.
+
+The original 2.9.4 ZIP published on WordPress.org contained no copy of the licence
+text itself; the LICENSE file of this repository supplies the GNU General Public
+License version 2 that the plugin's own headers declare ("GPL version 2 or later"
+in enhanced-media-library.php, "GPLv2 or later" in readme.txt), unchanged and in
+full.
+
+THIRD-PARTY CODE
+----------------
+The 2.9.4 release does not bundle any third-party library: the JavaScript files in
+enhanced-media-library/js/ are the plugin's own scripts, and the media-modal code
+they extend (wp.media, jQuery, Underscore, Backbone) is loaded by WordPress itself
+from the WordPress installation, under the licences of those projects. The font
+files in enhanced-media-library/fonts/ ("webbistro") and the files in
+enhanced-media-library/css/ and enhanced-media-library/images/ are the original
+author's own work.
+
+None of these files was modified by this fork.
+
+SOURCE OF THE "TESTED UP TO" FIGURE
+------------------------------------
+The `readme.txt` shipped inside the official 2.9.4 ZIP declares `Tested up to:
+6.5.5`, while the plugin page and the official WordPress.org plugin API currently
+display `Tested up to: 6.5.14`. Both figures are quoted as they are, from their
+respective sources; this fork does not change any of them.

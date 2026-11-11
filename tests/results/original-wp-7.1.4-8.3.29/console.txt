@@ -1,0 +1,18 @@
+==============================================================
+CAS : original / WordPress wp-7.1.4 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+ROUGE  T9 utilitaires (export/import)                 1 diagnostic(s) : core/taxonomies.php on line 999;core/taxonomies.php on line 1013;core/options-pages.php on line 1286;
+
+RESULTATS : 8 vert(s), 2 rouge(s)
+VERDICT : ROUGE
