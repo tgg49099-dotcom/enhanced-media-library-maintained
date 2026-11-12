@@ -57,8 +57,11 @@ warnings). On the patched code the plugin writes **nothing** in the log.
 | `setup-env.sh` | creates one isolated WordPress installation (download, SQLite drop-in, `wp core install`) |
 | `form-post.py` | turns an HTML form into a browser-like `application/x-www-form-urlencoded` body (checkboxes, hidden "0" twins, `<select>`, `<textarea>`) |
 | `apply-compat-patch.py` | rebuilds the patched tree from the official ZIP and checks that **only** the two patched files differ |
+| `mutate.py` | removes or restores the compatibility fix, by exact string replacement that refuses to write if the pattern is not found exactly once (`MUT_PATTERN=eml`) |
 | `results/matrice.txt` | the summary of the run |
+| `results/matrice-2026-11-12.txt` | re-run of the 4 patched cases on 2026-11-12: 4 green, 0 red |
 | `results/contre-preuve-rouge.txt` | **the red/green counter-proof: the raw output of the same test on the official code and on the patched code** |
+| `results/contre-epreuve-mutation.txt` | **the mutation counter-proof: the same test with the fix removed (RED), then with the fix put back (GREEN)** |
 | `results/<case>/` | per case: `console.txt`, `resultats.txt`, `debug.log.plugin-only.txt` |
 
 ## Reproducing

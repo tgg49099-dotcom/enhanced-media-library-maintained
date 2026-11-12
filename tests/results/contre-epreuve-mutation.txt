@@ -1,0 +1,107 @@
+==============================================================================
+RED COUNTER-PROOF - Enhanced Media Library 2.9.4
+This file proves that the test harness really exercises the patched lines:
+the SAME test, in the SAME environment, is run twice on the SAME patched
+code - once with the compatibility fix removed (it must go RED), once with
+the fix put back (it must go GREEN).
+==============================================================================
+
+Date        : 2026-11-12
+WordPress   : 6.8.12 and 7.1.4 (real installations, SQLite)
+PHP         : 8.3.29 and 8.5.8
+Case used   : WordPress 7.1.4 / PHP 8.3.29
+Harness     : tests/run-case.sh  (the harness published in this repository)
+
+------------------------------------------------------------------------------
+1. THE MUTATION
+------------------------------------------------------------------------------
+Only the compatibility fix is touched. Not one byte of anything else.
+
+File      : enhanced-media-library/core/taxonomies.php
+Before    : the patched file published in this repository
+            md5 2315efe6194ec55dc4df76cc29d377eb
+
+  patched :     $term_ids = array(); /     $tcount = null;
+  broken :     $term_ids = array(); unset($term_ids); /*MUT*/ /     $tcount = null; unset($tcount); /*MUT*/
+After     : the compatibility fix removed
+            md5 a59544ebb3e4a1bdfe78eb8c110f0faa
+
+The mutation is applied by an exact string replacement that REFUSES to write
+if the pattern is not found exactly once, so a mutation that missed its
+target could not be mistaken for a proof.
+
+------------------------------------------------------------------------------
+2. STEP 1 - the test on the BROKEN code  (it must fail)
+------------------------------------------------------------------------------
+
+$ cp -a fixed/enhanced-media-library broken/enhanced-media-library
+$ mutate.py break broken/enhanced-media-library/core/taxonomies.php
+mode=break   motif=eml  fichier=/work/wp/reprise/eml/broken/enhanced-media-library/core/taxonomies.php md5_apres=a59544ebb3e4a1bdfe78eb8c110f0faa
+$ bash tests/run-case.sh broken wp-7.1.4 8.3.29
+
+[raw output]
+==============================================================
+CAS : broken / WordPress wp-7.1.4 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+ROUGE  T6 AJAX save-attachment-compat                 2 diagnostic(s) : core/taxonomies.php on line 1011;core/taxonomies.php on line 1025;
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 9 vert(s), 1 rouge(s)
+VERDICT : ROUGE
+
+Exit code of the case: 1   (1 = at least one test is RED)
+
+------------------------------------------------------------------------------
+3. STEP 2 - the fix is put back  (the test must pass again)
+------------------------------------------------------------------------------
+
+$ mutate.py restore broken/enhanced-media-library/core/taxonomies.php
+mode=restore motif=eml  fichier=/work/wp/reprise/eml/broken/enhanced-media-library/core/taxonomies.php md5_apres=2315efe6194ec55dc4df76cc29d377eb
+$ bash tests/run-case.sh broken wp-7.1.4 8.3.29
+
+[raw output]
+==============================================================
+CAS : broken / WordPress wp-7.1.4 / PHP 8.3.29
+==============================================================
+VERT   T1 activation                                  aucune erreur fatale, 0 diagnostic
+ATT=4 PAGE_ID=5
+VERT   T2 front (galerie + playlist)                  HTTP 200, media affiche, 0 diagnostic
+VERT   T3 bibliotheque de medias                      grille + liste HTTP 200, 0 diagnostic
+VERT   T6 AJAX save-attachment-compat                 enregistrement JSON OK, 0 diagnostic
+TERM=2
+VERT   T6b AJAX save-attachment-compat (tax_input)    enregistrement JSON OK, 0 diagnostic
+VERT   T4 ecran de modification d'un media            HTTP 200, taxonomie EML presente, 0 diagnostic
+VERT   T5 enregistrement d'un media                   titre + description enregistres, 0 diagnostic
+VERT   T7 pages de reglages                           5 pages HTTP 200, 0 diagnostic
+VERT   T8 enregistrement des reglages                 3 formulaires enregistres, 0 diagnostic
+VERT   T9 utilitaires (export/import)                 export + import avec fichier + import sans fichier, 0 diagnostic
+
+RESULTATS : 10 vert(s), 0 rouge(s)
+VERDICT : VERT
+
+Exit code of the case: 0   (0 = every test is GREEN)
+
+md5 of the restored file : 2315efe6194ec55dc4df76cc29d377eb
+md5 of the published file : 2315efe6194ec55dc4df76cc29d377eb
+-> IDENTICAL (the restored file is the published file, byte for byte)
+
+------------------------------------------------------------------------------
+4. WHAT THIS PROVES
+------------------------------------------------------------------------------
+The harness is not a rubber stamp: with the fix removed it reports
+the two PHP 8 warnings that the fix removes ("Undefined variable $term_ids" and "Undefined variable $tcount"), and with the fix put back it reports no PHP diagnostic at all
+The published code is byte-for-byte the code that was tested (same md5).
+
+==============================================================================
+END OF THE RED COUNTER-PROOF
+==============================================================================

@@ -70,6 +70,25 @@ The same suite is run twice: once against the untouched official 2.9.4 code
 (`original`) and once against the patched code (`fixed`). On the official code the
 suite reports PHP 8 warnings; on the patched code it reports none.
 
+### The harness is not a rubber stamp
+
+`tests/results/contre-epreuve-mutation.txt` is the proof that the suite
+really exercises the patched lines. The same case (WordPress 7.1.4, PHP
+8.3.29) is run twice on the same patched code: once with the compatibility
+fix **removed** - the test must go **RED** - and once with the fix **put
+back** - the test must go **GREEN** again. The mutation is an exact string
+replacement that refuses to write if the pattern is not found exactly once,
+and the restored file is verified to be byte-for-byte the published file
+(same md5).
+
+```
+tests/mutate.py break   broken/enhanced-media-library/core/taxonomies.php
+tests/mutate.py restore broken/enhanced-media-library/core/taxonomies.php
+```
+
+`tests/results/matrice-2026-11-12.txt` is a re-run of the four patched
+cases on 2026-11-12: 4 green, 0 red.
+
 ## Known issues we did NOT change
 
 `CHANGELOG-COMPAT.md` lists them in full. In short: one thing would need a
